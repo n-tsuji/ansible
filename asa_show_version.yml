@@ -1,0 +1,25 @@
+---
+- hosts: asa
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: asa show command
+      asa_command:
+        commands:
+          - show version
+        provider: "{{ cli }}"
+      register: result
+
+    - name: debug
+      debug:
+        msg: "{{ result.stdout_lines }}"
+
+  vars:
+    cli:
+      host: 10.44.22.138
+      username: admin
+      password: admin
+      authorize: yes
+      auth_pass: "\n"
+
