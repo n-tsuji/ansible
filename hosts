@@ -1,0 +1,6 @@
+[asa]
+10.44.22.138
+
+[asa:vars]
+ansible_user=admin
+ansible_password=admin
